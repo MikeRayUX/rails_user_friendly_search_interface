@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+
+1000.times do |num|
+  User.create(name: Faker::Name.first_name)
+end
+
+p "#{User.count} users created!"
