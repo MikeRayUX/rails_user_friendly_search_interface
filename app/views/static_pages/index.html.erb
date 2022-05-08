@@ -1,6 +1,7 @@
 <div class="w-full px-6 flex flex-col justify-center items-center">
-  <%= form_with method: :get, class: 'w-full flex flex-row justify-center items-center' do |f| %>
-    <div class="bg-white relative w-full max-w-screen-sm rounded-md placeholder:text-slate-400 text-2xl shadow flex flex-row justify-start items-center">
+  <%= form_with method: :get, class: "w-full flex flex-col justify-center items-center" do |f| %>
+    <!-- search field START -->
+    <div class="bg-white relative w-full max-w-screen-sm rounded-md shadow flex flex-row justify-start items-center mb-2">
       <%= f.text_field :search_term, placeholder: "Enter first name...", class: "rounded-md focus:outline-none border-none w-full full py-4 text-xl antialiased" %>
       <div class="absolute right-0 flex flex-row justify-center items-center">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10 text-slate-900 mx-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
@@ -8,5 +9,17 @@
         </svg>
       </div>
     </div>
+    <!-- search field END -->
+
+    <!-- autocomplete results START -->
+    <div class="bg-white relative w-full max-w-screen-sm rounded-md shadow flex flex-row justify-start items-center mb-2">
+      <div style="min-height: 200px;" class="rounded-md focus:outline-none w-full full py-4 flex flex-col justify-center items-center">
+        <h2 class="text-lg text-left font-bold bg-gray-200 text-gray-900 w-full pl-6">Users:</h2>
+        <% 7.times do %>
+          <a class="text-gray-900 hover:bg-violet-600 hover:text-white w-full font-semibold py-2 pl-6 text-lg" href="/">Michael</a>
+        <% end %>
+      </div>
+    </div>
+    <!-- autocomplete results END -->
   <% end %> 
 </div>
