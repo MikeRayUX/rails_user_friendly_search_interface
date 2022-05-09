@@ -1,3 +1,5 @@
+const form = document.querySelector("#searchForm");
+const searchField = document.querySelector("#searchField");
 const resultsContainer = document.querySelector("#resultsContainer"); // show/hide results element
 const results = document.querySelector("#results"); // render search results
 const userCount = document.querySelector("#userCount"); // update/render users.length
@@ -14,7 +16,7 @@ const createUserElement = (user) => {
   return user_element;
 };
 
-document.querySelector("#search_field").addEventListener("input", (e) => {
+searchField.addEventListener("input", (e) => {
   if (resultsContainer.classList.contains("hidden")) {
     resultsContainer.classList.remove("hidden");
   }
@@ -42,4 +44,10 @@ document.querySelector("#search_field").addEventListener("input", (e) => {
         results.appendChild(no_results_element);
       }
     });
+});
+
+searchField.addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    form.submit();
+  }
 });
