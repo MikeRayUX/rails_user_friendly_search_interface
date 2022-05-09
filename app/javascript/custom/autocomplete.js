@@ -27,7 +27,7 @@ document.querySelector("#search_field").addEventListener("input", (e) => {
     .then((response) => response.json())
     .then((data) => {
       //console.log("data.users:", data.users);
-      userCount.innerHTML = data.users.length || null;
+      userCount.innerHTML = `(${data.users.length})`;
       results.innerHTML = null;
       if (data.users.length) {
         for (user of data.users) {
