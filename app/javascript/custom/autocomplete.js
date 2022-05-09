@@ -19,15 +19,19 @@ document.querySelector("#search_field").addEventListener("input", (e) => {
     resultsContainer.classList.remove("hidden");
   }
 
+  if (!e.target.value.length) {
+    resultsContainer.classList.add("hidden");
+  }
+
   fetch("/api/v1/autocompletes?" + new URLSearchParams({ q: e.target.value }))
     .then((response) => response.json())
     .then((data) => {
-      console.log("data.users:", data.users);
+      //console.log("data.users:", data.users);
       userCount.innerHTML = data.users.length || null;
       results.innerHTML = null;
       if (data.users.length) {
         for (user of data.users) {
-          console.log("user:", user);
+          //console.log("user:", user);
           results.appendChild(createUserElement(user));
         }
       } else {
