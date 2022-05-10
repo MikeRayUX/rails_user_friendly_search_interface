@@ -11,15 +11,13 @@
   <!-- search field END -->
 
   <!-- autocomplete results START -->
-  <div id="resultsContainer"class="hidden bg-white relative w-full max-w-screen-sm rounded-md shadow flex flex-col justify-start items-center">
+  <div id="resultsContainer" class="hidden bg-white relative w-full max-w-screen-sm rounded-md shadow flex flex-col justify-start items-center">
     <h2 class="py-2 leading-none text-base text-left font-bold bg-gray-200 text-gray-900 w-full pl-6 rounded-t-md pt-2">Users <span id="userCount"></span></h2>
     <div id="results" style="" class="rounded-md focus:outline-none w-full full flex flex-col justify-start items-center">
       <!-- results go HERE -->
     </div>
   </div>
   <!-- autocomplete results END -->
-<% end %> 
-
+<% end %>
 
 <%= javascript_include_tag "custom/autocomplete", defer: true %>
-

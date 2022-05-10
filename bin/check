@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+#chmod u+x bin/check
+
+# Exit when any command fails
+set -e
+
+# Check Ruby code formatting
+echo "running: standardrb -a --fix"
+bundle exec standardrb --fix
+echo "Success!"
+# Check erb file formatting
+echo "running: bundle exec erblint --lint-all"
+bundle exec erblint --lint-all
+echo "Success!"
+
+# Check i18n health
+#bundle exec i18n-tasks health en
+
+# Run the test suite
+echo "running: bundle exec rspec"
+bundle exec rspec
+echo "Success!"
+
+# Run Security Audits
+echo "running: bundle exec bundler-audit --update"
+bundle exec bundler-audit --update
+echo "Success!"
+
+echo "running: bundle exec brakeman -q -w2"
+bundle exec brakeman -q -w2
+echo "Success!"
+# Ensure seeds work
+echo "Everything is good to go!"
+RAILS_ENV=test bundle exec rails db:reset

@@ -6,5 +6,4 @@ Rails.application.routes.draw do
       resources :autocompletes, only: :index
     end
   end
-
 end
