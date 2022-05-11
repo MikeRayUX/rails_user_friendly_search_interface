@@ -63,6 +63,7 @@ group :development, :test do
   # Testing
   gem "rspec-rails"
   gem "factory_bot_rails"
+  gem "brakeman"
 end
 
 group :development do
